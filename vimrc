@@ -211,10 +211,6 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 vnoremap <silent> * :call VisualSearch('f')<CR>
 vnoremap <silent> # :call VisualSearch('b')<CR>
 
-" When you press gv you vimgrep after the selected text. Not sure how to use.
-" vnoremap <silent> gv :call VisualSearch('gv')<CR>
-" map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
-
 function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
@@ -245,14 +241,6 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Command mode related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Smart mappings on the command line. If the below key combinations are pressed VIM autofill the commands
-" cno $h e ~/
-" cno $d e ~/Desktop/
-" cno $j e ./
-" cno $c e <C-\>eCurrentFileDir("e")<cr>
-
-" $q is super useful when browsing on the command line
-" cno $q <C-\>eDeleteTillSlash()<cr>
 
 " Bash like keys for the command line
 cnoremap <C-A>          <Home>
@@ -266,28 +254,6 @@ func! Cwd()
   let cwd = getcwd()
   return "e " . cwd
 endfunc
-
-" func! DeleteTillSlash()
-  " let g:cmd = getcmdline()
-  " if MySys() == "linux" || MySys() == "mac"
-    " let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*", "\\1", "")
-  " else
-    " let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\]\\).*", "\\1", "")
-  " endif
-  " if g:cmd == g:cmd_edited
-    " if MySys() == "linux" || MySys() == "mac"
-      " let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
-    " else
-      " let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\\]\\).*\[\\\\\]", "\\1", "")
-    " endif
-  " endif
-  " return g:cmd_edited
-" endfunc
-
-" func! CurrentFileDir(cmd)
-  " return a:cmd . " " . expand("%:p:h") . "/"
-" endfunc
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs and buffers
@@ -321,34 +287,6 @@ map <Tab> :tabnext<cr>
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
-
-" command! Bclose call <SID>BufcloseCloseIt()
-" function! <SID>BufcloseCloseIt()
-   " let l:currentBufNum = bufnr("%")
-   " let l:alternateBufNum = bufnr("#")
-"
-   " if buflisted(l:alternateBufNum)
-     " buffer #
-   " else
-     " bnext
-   " endif
-"
-   " if bufnr("%") == l:currentBufNum
-     " new
-   " endif
-"
-   " if buflisted(l:currentBufNum)
-     " execute("bdelete! ".l:currentBufNum)
-   " endif
-" endfunction
-
-" Specify the behavior when switching between buffers
-" try
-  " set switchbuf=usetab
-  " set stal=2
-" catch
-" endtry
-
 
 """"""""""""""""""""""""""""""
 " => Statusline
@@ -400,85 +338,17 @@ endfunction
 " Remap VIM 0
 map 0 ^
 
-" Move a line of text using ALT+[jk]. Extremely handy but does not seem to work.
-" nmap <M-j> mz:m+<cr>`z
-" nmap <M-k> mz:m-2<cr>`z
-" vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-" vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-"Delete trailing white space, useful for Python ;)
-" func! DeleteTrailingWS()
-  " exe "normal mz"
-  " %s/\s\+$//ge
-  " exe "normal `z"
-" endfunc
-
-" Delete trailing whitespaces does not seem to work.
-" autocmd BufWrite :call DeleteTrailingWS()
-
 " Strip all spaces at the end of the lines.
 " TODO: This moves the mouse cursor from the last edited position. Fix IT!
 autocmd BufWritePre * :%s/\s\+$//e
 
 set guitablabel=%t
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Cope
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Do :help cope if you are unsure what cope is. It's super useful!
-" map <leader>cc :botright cope<cr>
-" map <leader>n :cn<cr>
-" map <leader>p :cp<cr>
-
-
-""""""""""""""""""""""""""""""
-" => JavaScript section
-"""""""""""""""""""""""""""""""
-" au FileType javascript call JavaScriptFold()
-" au FileType javascript setl fen
-" au FileType javascript setl nocindent
-"
-" au FileType javascript imap <c-t> AJS.log();<esc>hi
-" au FileType javascript imap <c-a> alert();<esc>hi
-"
-" au FileType javascript inoremap <buffer> $r return
-" au FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
-"
-" function! JavaScriptFold()
-    " setl foldmethod=syntax
-    " setl foldlevelstart=1
-    " syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-"
-    " function! FoldText()
-    " return substitute(getline(v:foldstart), '{.*', '{...}', '')
-    " endfunction
-    " setl foldtext=FoldText()
-" endfunction
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MISC
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remove the Windows ^M - when the encodings gets messed up
-" noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-
-"Quickly open a buffer for scripbble
-" map <leader>q :e ~/buffer<cr>
-" au BufRead,BufNewFile ~/buffer iab <buffer> xh1 ===========================================
-
-" map <leader>pp :setlocal paste!<cr>
 
 map <leader>bb :cd ..<cr>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => PHP
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-inoremap <C-C> <ESC>:call PhpDocSingle()<CR>i
-nnoremap <C-C> :call PhpDocSingle()<CR>
-vnoremap <C-C> :call PhpDocRange()<CR>
 
 " Open NERDTree with this shortcut
 nmap <silent> <c-n> :NERDTreeToggle<CR>
@@ -509,17 +379,6 @@ let Tlist_File_Fold_Auto_Close = 1
 let Tlist_Inc_Winwidth = 0
 let Tlist_Process_File_Always = 1
 
-" Exuberant Ctags
-"
-" Map <F4> to re-build tags file
-" nmap <silent> <F8>
-            "\ :!ctags -f ./tags
-            "\ --langmap="php:+.inc"
-            "\ -h ".php.inc" -R --totals=yes
-            "\ --exclude=".svn"
-            "\ --tag-relative=yes --PHP-kinds=+cf-v .<CR>
-nmap <silent> <F8> :!./create_tags.sh <CR>
-
 " Set tag filename(s)
 set tags=./tags,tags
 
@@ -545,12 +404,6 @@ nmap <leader>g :grep! -REn <C-R><C-W>
 
 " Open vimrc in a split window
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-
-" split the current line to the next after the 80th character
-" nnoremap <leader>- 80|F<Space>r<cr>
-
-" map <C-j> yypk<S-s><Esc>j
-" map <C-k> yykP<S-s><Esc>
 
 " Converts a word from lowercase to uppercase. How to use Ctrl-Shift-u for "W"?
 imap <C-u> <Esc>vwUi
