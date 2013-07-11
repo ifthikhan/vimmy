@@ -470,3 +470,10 @@ noremap <leader>q :q<CR>
 
 " Toggle between to the last and current buffer.
 noremap <Backspace> :b#<CR>
+
+" PHP-QA plugin settings
+" Don't run messdetector on save (default = 1)
+let g:phpqa_messdetector_autorun = 0
+
+" Don't run codesniffer on save (default = 1)
+let g:phpqa_codesniffer_autorun = 0
