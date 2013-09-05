@@ -23,6 +23,6 @@ git clone https://github.com/vim-scripts/php.vim
 git clone https://github.com/joonty/vim-phpqa
 git clone https://github.com/vim-scripts/taglist.vim
 git clone https://github.com/myhere/vim-nodejs-complete.git
-git clone https://github.com/hallettj/jslint.vim.git
+git clone https://github.com/wookiehangover/jshint.vim.git
 
 popd
