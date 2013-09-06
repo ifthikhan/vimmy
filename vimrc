@@ -53,8 +53,6 @@ augroup myvimrchooks
     autocmd bufwritepost .vimrc :source ~/.vimrc
 augroup END
 
-" Always switch to the current file directory.. Messes with some plugins, best left commented out
-" set autochdir
 
 scriptencoding utf-8
 
@@ -130,14 +128,6 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" highlight current line
-set cursorline
-
-" highlight bg color of current line
-hi cursorline guibg=#333333
-
-" highlight cursor
-hi CursorColumn guibg=#333333
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -163,6 +153,23 @@ endtry
 
 " Default file types
 set ffs=unix,dos,mac
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Cursor Styles. (Should always be defined under themes)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" highlight current line
+set cursorline
+
+" highlight bg color of current line
+"hi cursorline guibg=#333333
+hi CursorLine   cterm=underline ctermbg=Black ctermfg=None guibg=None guifg=None
+
+
+" highlight cursor
+"hi CursorColumn guibg=#333333
+hi CursorColumn     cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -454,3 +461,7 @@ let g:phpqa_messdetector_autorun = 0
 
 " Don't run codesniffer on save (default = 1)
 let g:phpqa_codesniffer_autorun = 0
+
+let g:solarized_termtrans=0
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
