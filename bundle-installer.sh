@@ -25,4 +25,9 @@ git clone https://github.com/vim-scripts/taglist.vim
 git clone https://github.com/myhere/vim-nodejs-complete.git
 git clone https://github.com/wookiehangover/jshint.vim.git
 
+# The installation of the solar theme requires the installation of a theme for
+# the terminal itself which can be done from the repo
+# https://github.com/sigurdga/gnome-terminal-colors-solarized
+git clone https://github.com/altercation/vim-colors-solarized.git
+
 popd

@@ -151,7 +151,8 @@ syntax enable
 set gfn=Monospace\ 10
 set shell=/bin/bash
 
-colorscheme zellner
+"colorscheme zellner
+colorscheme solarized
 set background=dark
 
 set encoding=utf8
@@ -355,6 +356,9 @@ nmap <silent> <c-n> :NERDTreeToggle<CR>
 
 nmap <leader>k :NERDTreeFromBookmark<space>
 nmap <leader>n :NERDTreeFind<CR>
+let NERDTreeIgnore = ['\.pyc$']
+" Hide line numbers in NERDTree buffer
+let NERDTreeShowLineNumbers = 0
 
 ab @@ Ifthikhan Nazeem <iftecan2000@gmail.com>
 
@@ -413,10 +417,6 @@ nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 " Wrapes a "selection with double" quotes
 vnoremap <leader>" xi"<esc>pa"<esc>
 vnoremap <leader>' xi'<esc>pa'<esc>
-
-" Enter normal mode from insert mode.
-" inoremap jk <esc>
-" inoremap <esc> <nop>
 
 nnoremap <F3> :NumbersToggle<CR>
 
