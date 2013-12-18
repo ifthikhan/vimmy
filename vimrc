@@ -141,8 +141,8 @@ syntax enable
 set gfn=Monospace\ 10
 set shell=/bin/bash
 
-"colorscheme zellner
-colorscheme solarized
+colorscheme zellner
+"colorscheme solarized
 set background=dark
 
 set encoding=utf8
@@ -462,6 +462,6 @@ let g:phpqa_messdetector_autorun = 0
 " Don't run codesniffer on save (default = 1)
 let g:phpqa_codesniffer_autorun = 0
 
-let g:solarized_termtrans=0
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
+"let g:solarized_termtrans=0
+"let g:solarized_contrast="normal"
+"let g:solarized_visibility="normal"
