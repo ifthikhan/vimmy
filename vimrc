@@ -188,6 +188,7 @@ endtry
 
 " See for a decent explanation of the indent and TAB settings
 " http://vim.wikia.com/wiki/Indenting_source_code
+" http://tedlogan.com/techblog3.html
 
 " Changes the width of the TAB character.
 set tabstop=4
@@ -285,6 +286,20 @@ map <Tab>       :tabnext<cr>
 
 " Always hide the statusline
 set laststatus=2
+
+function! CurDir()
+    let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
+    return curdir
+endfunction
+
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    else
+        return ''
+    endif
+endfunction
+
 
 " Format the statusline
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
