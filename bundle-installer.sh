@@ -1,7 +1,12 @@
 #!/bin/bash
 
 echo "Creating vimrc link"
-ln -s vimrc ~/.vimrc
+ln -s $(pwd)/vimrc ~/.vimrc
+
+echo "Placing the cheatsheet in help dir"
+DOC_DIR="~/.vim/doc/"
+mkdir -p $DOC_DIR
+ln -s $(pwd)/cheatsheet.txt $DOC_DIR
 
 echo "Installing and placing pathogen"
 mkdir -p ~/.vim/autoload ~/.vim/bundle
