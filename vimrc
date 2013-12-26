@@ -448,3 +448,6 @@ noremap <leader>q :q<CR>
 
 " Toggle between to the last and current buffer.
 noremap <Backspace> :b#<CR>
+
+" Pydiction dictionary
+let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'

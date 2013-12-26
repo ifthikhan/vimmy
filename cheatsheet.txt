@@ -23,6 +23,7 @@ person2: 555-767676-222
 
 Echo the value of a variable :echo &var_name
 In insert mode use <Ctrl>-V-<Tab> to insert a \t
-
-
-
+:echo @%    def/my.txt   directory/name of file
+:echo expand('%:t')     my.txt   name of file ('tail')
+:echo expand('%:p')     /abc/def/my.txt  full path
+:echo expand('%:p:h')   /abc/def     directory containing file ('head')
