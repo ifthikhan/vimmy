@@ -21,9 +21,28 @@ person1: 555-676767-333
 person2: 555-767676-222
 >>>
 
-Echo the value of a variable :echo &var_name
+Echo the value of a variable :echo &var_name, not a variable but rather a cmd.
 In insert mode use <Ctrl>-V-<Tab> to insert a \t
 :echo @%    def/my.txt   directory/name of file
 :echo expand('%:t')     my.txt   name of file ('tail')
 :echo expand('%:p')     /abc/def/my.txt  full path
 :echo expand('%:p:h')   /abc/def     directory containing file ('head')
+
+"vim -" starts vim with a buffer from text read from stdin
+
+ ====
+ Vim scripting the hardway.
+
+ Toggling Boolean Options :set number! "Use the ! char to toggle
+ Checking the value of boolean options :set number?
+
+
+ viw = will highlight the entire word
+ diw = will delete the entire word
+ ciw
+
+ daw, vaw, caw are possible too
+
+ *map and *noremap mappings
+
+ leader and localleader global variables

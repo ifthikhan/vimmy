@@ -2,6 +2,8 @@
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Search for "<next-text-edit>" for adding text edit shortcurts
+
 " No backwards compatibility with vi. This must be the first line.
 set nocompatible
 
@@ -234,9 +236,6 @@ set list
 " Customise how and which unprintable characters are denoted and printed.
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
-" Aids when pasting text from clipboard. Press f2 to toggle when in insert mode
-set pastetoggle=<F2>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Command mode related
@@ -309,7 +308,7 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Editing mappings
+" => Text editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Remap VIM 0
@@ -321,6 +320,32 @@ map 0 ^
 autocmd BufWritePre * :%s/\s\+$//e
 
 set guitablabel=%t
+
+" Convert lowercase word under the cursor to uppercase
+noremap <c-u> viwU<CR>
+
+" Aids when pasting text from clipboard. Press f2 to toggle when in insert mode
+set pastetoggle=<F2>
+
+" Open the current buffer in gedit
+nnoremap <leader>o :!gedit %<CR>
+
+" Easily indent code blocks by keeping them highlighted. Usually after the
+" first indent the highlight is removed.
+vnoremap < <gv
+vnoremap > >gv
+
+" Shortcut for saving
+noremap <leader>w :w<CR>
+
+" Shortcut for quitting
+noremap <leader>q :q<CR>
+
+" Toggle between to the last and current buffer.
+noremap <Backspace> :b#<CR>
+
+" <next-text-edit>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTRee customisations.
@@ -353,7 +378,7 @@ let g:ctrlp_follow_symlinks = 1
 
 " Set the default search mode to be regex
 let g:ctrlp_regexp = 1
-"
+
 " When opening a file with <cr> or <c-t>, if the file's already opened somewhere
 " CtrlP will try to jump to it instead of opening a new instance, this is the default
 " behavior. This behavior has been disabled.
@@ -435,22 +460,6 @@ augroup omnicomplete_hooks
 augroup END
 
 nnoremap <F3> :NumbersToggle<CR>
-
-nnoremap <leader>o :!gedit %<CR>
-
-" Easily indent code blocks by keeping them highlighted. Usually after the
-" first indent the highlight is removed.
-vnoremap < <gv
-vnoremap > >gv
-
-" Shortcut for saving
-noremap <leader>w :w<CR>
-
-" Shortcut for quitting
-noremap <leader>q :q<CR>
-
-" Toggle between to the last and current buffer.
-noremap <Backspace> :b#<CR>
 
 " Pydiction dictionary
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
