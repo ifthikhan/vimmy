@@ -234,6 +234,9 @@ set list
 " Customise how and which unprintable characters are denoted and printed.
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
+" Aids when pasting text from clipboard. Press f2 to toggle when in insert mode
+set pastetoggle=<F2>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Command mode related
