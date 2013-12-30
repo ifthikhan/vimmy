@@ -439,6 +439,16 @@ nmap <leader>g :grep! -REn <C-R><C-W>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIMROOM
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" vimroom sets this variable to a string "bg" and raises an error
+let g:vimroom_ctermbackground = 8
+
+let g:vimroom_guibackground = "white"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -459,7 +469,37 @@ augroup omnicomplete_hooks
     autocmd FileType c          :set omnifunc=ccomplete#Complete
 augroup END
 
-nnoremap <F3> :NumbersToggle<CR>
-
 " Pydiction dictionary
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+
+" Highlight line number
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE
+                \ guifg=DarkGrey guibg=NONE
+
+
+" Function to toggle between regular and relative numbering
+function! ToggleLineNumbers()
+    if !exists("w:toggle_line_numbers")
+        let w:toggle_line_numbers = 1
+        set number
+    else
+        if w:toggle_line_numbers == 1
+            set relativenumber
+        else
+            set number
+        endif
+        let w:toggle_line_numbers = !w:toggle_line_numbers
+    endif
+endfunction
+
+" Disable all forms of numbering
+function! DisableLineNumbers()
+    if exists("w:toggle_line_numbers")
+        unlet w:toggle_line_numbers
+    endif
+    set nonumber
+    set norelativenumber
+endfunction
+
+nnoremap <silent> <F3> :call ToggleLineNumbers()<CR>
+nnoremap <silent> <F4> :call DisableLineNumbers()<CR>

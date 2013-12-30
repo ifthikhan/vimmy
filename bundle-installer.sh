@@ -19,7 +19,6 @@ echo "Downloading bundles..."
 mkdir -p ~/.vim/autoload ~/.vim/bundle
 
 git clone https://github.com/kien/ctrlp.vim.git
-git clone https://github.com/myusuf3/numbers.vim.git
 git clone https://github.com/scrooloose/nerdtree.git
 git clone https://github.com/scrooloose/nerdcommenter.git
 git clone https://github.com/tpope/vim-fugitive.git
@@ -33,7 +32,9 @@ git clone https://github.com/vim-scripts/Pydiction.git # Autosuggest for python 
 git clone https://github.com/davidhalter/jedi-vim.git #Refactoring, contextual autocomplete, goto
 git clone https://github.com/scrooloose/syntastic.git # Linting
 git clone https://github.com/hynek/vim-python-pep8-indent.git
+git clone https://github.com/mikewest/vimroom.git #Distraction Free editing mode
 
+#git clone https://github.com/myusuf3/numbers.vim.git Interferes with vimroom by auto enabling the line-numbers
 #git clone https://github.com/klen/python-mode.git Linting seems to slow down
 # The installation of the solar theme requires the installation of a theme for
 # the terminal itself which can be done from the repo
