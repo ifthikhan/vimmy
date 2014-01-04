@@ -270,14 +270,14 @@ nnoremap <silent> <F3> :call ToggleLineNumbers()<CR>
 nnoremap <silent> <F4> :call DisableLineNumbers()<CR>
 
 " Insert section headers for vimrc
-func! VimSectionComment()
-    func! IsEmptyLine(line)
+function! VimSectionComment()
+    function! IsEmptyLine(line)
         " Single quotes eliminates double escaping of backslashes
         if a:line =~ '^\s*$'
             return 1
         else
             return 0
-    endfunc
+    endfunction
 
     let cur_line = getline(".")
     let cur_line = IsEmptyLine(cur_line) ? "..." : cur_line
@@ -315,7 +315,7 @@ func! VimSectionComment()
         execute("normal o\e")
         call cursor(lineno, 3)
     endif
-endfunc
+endfunction
 
 nnoremap <silent> <leader>v :call VimSectionComment()<CR>
 
