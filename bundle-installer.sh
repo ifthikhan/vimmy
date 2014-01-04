@@ -23,16 +23,21 @@ git clone https://github.com/scrooloose/nerdtree.git
 git clone https://github.com/scrooloose/nerdcommenter.git
 git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/mileszs/ack.vim.git
-git clone https://github.com/vim-scripts/php.vim
-git clone https://github.com/joonty/vim-phpqa
 git clone https://github.com/vim-scripts/taglist.vim
-git clone https://github.com/myhere/vim-nodejs-complete.git
-git clone https://github.com/wookiehangover/jshint.vim.git
 git clone https://github.com/vim-scripts/Pydiction.git # Autosuggest for python based on a dict
 git clone https://github.com/davidhalter/jedi-vim.git #Refactoring, contextual autocomplete, goto
 git clone https://github.com/scrooloose/syntastic.git # Linting
 git clone https://github.com/hynek/vim-python-pep8-indent.git
 git clone https://github.com/mikewest/vimroom.git #Distraction Free editing mode
+
+
+#PHP plugins
+#git clone https://github.com/vim-scripts/php.vim
+#git clone https://github.com/joonty/vim-phpqa
+
+#JS plugins
+#git clone https://github.com/myhere/vim-nodejs-complete.git
+#git clone https://github.com/wookiehangover/jshint.vim.git
 
 #git clone https://github.com/myusuf3/numbers.vim.git Interferes with vimroom by auto enabling the line-numbers
 #git clone https://github.com/klen/python-mode.git Linting seems to slow down
