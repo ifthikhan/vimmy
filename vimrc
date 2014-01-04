@@ -139,7 +139,7 @@ set tm=500
 " Set font ??
 set gfn=Monospace\ 10
 
-"colorscheme zellner
+colorscheme zellner
 
 set background=dark
 
@@ -225,6 +225,9 @@ let Tlist_Exit_OnlyWindow = 1
 
 " Only show tags for current buffer
 let Tlist_Show_One_File = 1
+
+" Align the taglist window onto right.
+let Tlist_Use_Right_Window = 1
 
 " Search the word under the cursor. The command <C-R><C-W> prints the word
 " under the cursor in command mode.
