@@ -161,7 +161,7 @@ set ffs=unix,dos,mac
 set cursorline
 
 " Highlight bg color of current line
-hi CursorLine   cterm=underline ctermbg=Black ctermfg=None guibg=None guifg=None
+hi CursorLine   cterm=underline ctermbg=None ctermfg=None guibg=None guifg=None
 
 " highlight cursor
 hi CursorColumn     cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
@@ -286,11 +286,11 @@ map <Tab>       :tabnext<cr>
 " => Statusline
 """"""""""""""""""""""""""""""
 
-" Always hide the statusline
+" Always show the statusline
 set laststatus=2
 
 function! CurDir()
-    let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
+    let curdir = substitute(getcwd(), '/home/ifthikhan/', "~/", "g")
     return curdir
 endfunction
 
@@ -470,7 +470,7 @@ augroup omnicomplete_hooks
 augroup END
 
 " Pydiction dictionary
-let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 
 " Highlight line number
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE
@@ -485,10 +485,11 @@ function! ToggleLineNumbers()
     else
         if w:toggle_line_numbers == 1
             set relativenumber
+            let w:toggle_line_numbers = 0
         else
             set number
+            let w:toggle_line_numbers = 1
         endif
-        let w:toggle_line_numbers = !w:toggle_line_numbers
     endif
 endfunction
 
@@ -503,3 +504,54 @@ endfunction
 
 nnoremap <silent> <F3> :call ToggleLineNumbers()<CR>
 nnoremap <silent> <F4> :call DisableLineNumbers()<CR>
+
+
+" Insert section headers for vimrc
+func! VimSectionComment()
+    func! IsEmptyLine(line)
+        " Single quotes eliminates double escaping of backslashes
+        if a:line =~ '^\s*$'
+            return 1
+        else
+            return 0
+    endfunc
+
+    let cur_line = getline(".")
+    let cur_line = IsEmptyLine(cur_line) ? "..." : cur_line
+
+    if cur_line !~ '^"'
+        let cur_line = "\" " . cur_line
+    endif
+
+    call setline(".", cur_line)
+
+    " \e in the below expression is to denote an escape character.
+    "See :h expr-string
+    " TODO: Manage indentation levels based on the current line
+    execute("normal O\e78i\"\ejo\e78i\"\e")
+    execute('normal k0')
+
+    " Add two empty lines above.
+    let lineno = line(".")
+    let [line1, line2] = getline(lineno - 3, lineno - 2)
+    if !IsEmptyLine(line2)
+        call cursor(lineno - 1, 1)
+        execute("normal O\e\O")
+        call cursor(lineno + 2, 3)
+    elseif !IsEmptyLine(line1) && IsEmptyLine(line2)
+        call cursor(lineno - 1, 1)
+        execute("normal O\e")
+        call cursor(lineno + 1, 3)
+    endif
+
+    " Add an empty line below.
+    let lineno = line(".")
+    let lineb = getline(lineno + 2)
+    if !IsEmptyLine(lineb)
+        call cursor(lineno + 1, 1)
+        execute("normal o\e")
+        call cursor(lineno, 3)
+    endif
+endfunc
+
+nnoremap <silent> <leader>v :call VimSectionComment()<CR>
