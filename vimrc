@@ -323,6 +323,18 @@ endfunction
 
 nnoremap <silent> <leader>v :call VimSectionComment()<CR>
 
+" Search the word under cursor in vim help files
+function! SearchForWordUnderCursorInVimHelp()
+    let word_under_cursor = expand("<cword>")
+    if !empty(word_under_cursor)
+        execute("h " . word_under_cursor)
+    else
+        echo "No word under the cursor"
+    endif
+endfunction
+
+nnoremap <silent> <leader>h :call SearchForWordUnderCursorInVimHelp()<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text Editing, Formatting and Snippets
