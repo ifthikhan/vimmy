@@ -1,8 +1,6 @@
 " Ifthikhan Nazeem's ~/.vimrc
 " For more details see: https://github.com/ifthikhan/vimmy
 
-" Search for "<next-text-edit>" for adding text edit shortcurts
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup
@@ -432,8 +430,7 @@ au InsertLeave * set nopaste
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Syntax highlighting
-" Note syntax on behaves differently
-syntax enable
+syntax on
 
 "Ignore case when searching
 set ignorecase
