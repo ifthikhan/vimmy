@@ -375,11 +375,23 @@ set wrap
 " Wrap lines at a character in the breakat variable.
 set lbr
 
-" Draws a line on the 80th column
+" Sets the maximum line length. Lines exceeding this length will be broken to a
+" newline
 set tw=79
 
-" ??
-set colorcolumn=80
+" Draws a line at the nth column. Multiple column. Makes redraw slower. When
+" preceded by a + or - the number given is added to the value of tw.
+" TODO: It's better to highlight text after tw instead of drawing this column.
+set colorcolumn=+1
+
+" Don't apply colorcolumn to help or readonly files.
+" @TODO: This might be a good fit for "Filetypes section
+function! CanApplyColorColumn()
+    if &ft == "help" || &readonly == 1
+        setlocal colorcolumn=0
+    endif
+endfunction
+autocmd BufReadPre * :call CanApplyColorColumn()
 
 " Visually indicates unprintable characters. The character to be displayed
 " are customised with the listchars.
