@@ -393,6 +393,11 @@ function! CanApplyColorColumn()
 endfunction
 autocmd BufReadPre * :call CanApplyColorColumn()
 
+" Add this option to ensure that if <CR> is pressed in "INSERT" mode and if
+" within a comments block the comment character is added to the new line as
+" well.
+set formatoptions+=r
+
 " Visually indicates unprintable characters. The character to be displayed
 " are customised with the listchars.
 set list
