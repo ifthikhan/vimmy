@@ -241,7 +241,7 @@ set tags=./tags,tags
 " Adding ack
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
-" Pydiction dictionary
+" Pydiction dictionary ??
 let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 
 " Function to toggle between regular and relative numbering
@@ -432,7 +432,8 @@ au InsertLeave * set nopaste
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Syntax highlighting
-syntax on
+" Note syntax on behaves differently
+syntax enable
 
 "Ignore case when searching
 set ignorecase
@@ -449,12 +450,12 @@ set incsearch
 " Highlight current line
 set cursorline
 
-" Highlight bg color of current line
-hi CursorLine   cterm=underline ctermbg=None ctermfg=None guibg=None guifg=None
+" Highlight bg color of current line. The defaults for this theme is adequate.
+"hi CursorLine   cterm=underline ctermbg=None ctermfg=None guibg=None guifg=None
 
-" Highlight cursor
-hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred
-            \ guifg=white
+" Highlight cursor. The defaults for the theme is adequate.
+"hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred
+            "\ guifg=white
 
 " Highlight line number
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE
@@ -479,4 +480,3 @@ set noswapfile
 "Persistent undo
 set undofile
 set undodir=~/.vim_undodir
-

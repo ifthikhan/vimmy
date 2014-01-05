@@ -46,3 +46,5 @@ In insert mode use <Ctrl>-V-<Tab> to insert a \t
  *map and *noremap mappings
 
  leader and localleader global variables
+
+ vim -u NONE " Runs without loading plugins or reading vimrc
