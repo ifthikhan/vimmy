@@ -116,8 +116,11 @@ set hid
 " Set to auto read when a file is changed from the outside
 set autoread
 
-" Don't redraw while executing macros
-set nolazyredraw
+" Differ redrawing file
+set lazyredraw
+
+"" Draw fast
+set ttyfast
 
 " Set magic on, for regular expression, special characters that can be used in
 " search patterns
