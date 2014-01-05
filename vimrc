@@ -324,7 +324,7 @@ endfunction
 nnoremap <silent> <leader>v :call VimSectionComment()<CR>
 
 " Search the word under cursor in vim help files
-function! SearchForWordUnderCursorInVimHelp()
+function! SearchWordUnderCursorInVimHelp()
     let word_under_cursor = expand("<cword>")
     if !empty(word_under_cursor)
         execute("h " . word_under_cursor)
@@ -333,7 +333,7 @@ function! SearchForWordUnderCursorInVimHelp()
     endif
 endfunction
 
-nnoremap <silent> <leader>h :call SearchForWordUnderCursorInVimHelp()<CR>
+nnoremap <silent> <leader>h :call SearchWordUnderCursorInVimHelp()<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
