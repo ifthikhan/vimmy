@@ -255,6 +255,7 @@ function! ToggleLineNumbers()
             set relativenumber
             let w:toggle_line_numbers = 0
         else
+            set norelativenumber
             set number
             let w:toggle_line_numbers = 1
         endif
