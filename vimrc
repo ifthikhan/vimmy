@@ -420,10 +420,16 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 " Remap VIM 0
 nnoremap 0 ^
 
+" Strips the trailing spaces
+function! StripTrailingSpaces()
+    exe "normal ma"
+    %s/\s\+$//e
+    exe "normal `a"
+endfunction
+
 " Strip all spaces at the end of the lines.
-" TODO: This moves the mouse cursor from the last edited position. Fix IT!
 " Ideally it should be toggled.
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * call StripTrailingSpaces()
 
 " Convert lowercase word under the cursor to uppercase
 noremap <c-u> viwU<CR>
