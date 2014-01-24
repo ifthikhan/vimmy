@@ -336,6 +336,9 @@ endfunction
 
 nnoremap <silent> <leader>h :call SearchWordUnderCursorInVimHelp()<CR>
 
+" Disable default working path mode
+let g:ctrlp_working_path_mode = 0
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text Editing, Formatting and Snippets
