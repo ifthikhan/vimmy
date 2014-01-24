@@ -16,7 +16,7 @@ set encoding=utf8
 set nocompatible
 
 " An interesting feature to embed vim settings in the file to be edited.
-set nomodeline
+" set nomodeline
 
 " Remove ALL autocommands for the current group. When the .vimrc file is
 " sourced twice, the autocommands will appear twice.  To avoid this, put this
