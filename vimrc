@@ -242,9 +242,6 @@ set tags=./tags,tags
 " Adding ack
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
-" Pydiction dictionary ??
-let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
-
 " Function to toggle between regular and relative numbering
 function! ToggleLineNumbers()
     if !exists("w:toggle_line_numbers")
