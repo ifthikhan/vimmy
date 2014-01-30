@@ -249,6 +249,9 @@ let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 function! ToggleLineNumbers()
     if !exists("w:toggle_line_numbers")
         let w:toggle_line_numbers = 1
+    endif
+
+    if &number == 0
         set number
     else
         if w:toggle_line_numbers == 1
