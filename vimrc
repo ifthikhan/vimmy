@@ -172,8 +172,13 @@ map <Tab>       :tabnext<cr>
 " Always show the statusline
 set laststatus=2
 
+" Returns the path of the home dir
+function! GetHomeDir()
+    return system('echo -n $HOME')
+endfunction
+
 function! CurDir()
-    let curdir = substitute(getcwd(), '/home/ifthikhan/', "~/", "g")
+    let curdir = substitute(getcwd(), GetHomeDir(), "~/", "g")
     return curdir
 endfunction
 
@@ -431,9 +436,22 @@ function! StripTrailingSpaces()
     exe "normal `a"
 endfunction
 
+function! ToggleStripTrailingSpaces()
+    if !exists('g:ifrc_strip_trail_spaces') || g:ifrc_strip_trail_spaces == 0
+        let g:ifrc_strip_trail_spaces = 1
+    else
+        let g:ifrc_strip_trail_spaces = 0
+    endif
+endfunction
+
+function! ThouShaltTryStrippingIt()
+    if exists('g:ifrc_strip_trail_spaces') && g:ifrc_strip_trail_spaces == 1
+        call StripTrailingSpaces()
+    endif
+endfunction
+
 " Strip all spaces at the end of the lines.
-" Ideally it should be toggled.
-autocmd BufWritePre * call StripTrailingSpaces()
+autocmd BufWritePre * call ThouShaltTryStrippingIt()
 
 " Convert lowercase word under the cursor to uppercase
 noremap <c-u> viwU<CR>
@@ -519,3 +537,10 @@ set noswapfile
 "Persistent undo
 set undofile
 set undodir=~/.vim_undodir
+
+" Add a file named ~/.vimrcx in the home directory to override vimrc settings
+" specific to the current host
+let g:if_extended_vimrc = GetHomeDir() . '/.vimrcx'
+if filereadable(g:if_extended_vimrc)
+    so `=g:if_extended_vimrc`
+endif
