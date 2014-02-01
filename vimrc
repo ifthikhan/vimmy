@@ -550,4 +550,6 @@ if filereadable(g:if_extended_vimrc)
     so `=g:if_extended_vimrc`
 endif
 
+" Execute shell command from any window although scratch buffer is preffered.
+" The output will always be redirected to the scratch buffer.
 nnoremap <silent> <leader>e :VSh2Scratch<cr>
