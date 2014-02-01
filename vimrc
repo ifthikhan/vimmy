@@ -538,9 +538,16 @@ set noswapfile
 set undofile
 set undodir=~/.vim_undodir
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Miscellaneous
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Add a file named ~/.vimrcx in the home directory to override vimrc settings
 " specific to the current host
 let g:if_extended_vimrc = GetHomeDir() . '/.vimrcx'
 if filereadable(g:if_extended_vimrc)
     so `=g:if_extended_vimrc`
 endif
+
+nnoremap <silent> <leader>e :VSh2Scratch<cr>
