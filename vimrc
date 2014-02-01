@@ -473,6 +473,9 @@ noremap <leader>q :q<CR>
 " Toggle between to the last and current buffer.
 noremap <Backspace> :b#<CR>
 
+" map semicolon to colon
+nnoremap ; :
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Copy & Paste
@@ -518,7 +521,7 @@ set cursorline
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE
                 \ guifg=DarkGrey guibg=NONE
 
-map <silent> <leader>/ :noh<cr>
+map <silent> <leader><space> :noh<cr>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -549,5 +552,3 @@ let g:if_extended_vimrc = GetHomeDir() . '/.vimrcx'
 if filereadable(g:if_extended_vimrc)
     so `=g:if_extended_vimrc`
 endif
-
-nnoremap <silent> <leader>e :VSh2Scratch<cr>
