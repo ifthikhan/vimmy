@@ -473,9 +473,6 @@ noremap <leader>q :q<CR>
 " Toggle between to the last and current buffer.
 noremap <Backspace> :b#<CR>
 
-" map semicolon to colon
-nnoremap ; :
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Copy & Paste
