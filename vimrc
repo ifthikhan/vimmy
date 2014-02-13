@@ -344,6 +344,22 @@ nnoremap <silent> <leader>h :call SearchWordUnderCursorInVimHelp()<CR>
 " Disable default working path mode
 let g:ctrlp_working_path_mode = 0
 
+function! FixHeader()
+    let name = bufname("%")
+    let window_num = bufwinnr(name)
+    "echom "Buffer name" name window_num
+    execute("normal ma gg yy")
+    new
+    resize 1
+    setlocal statusline='-'
+    hi statusline guibg=Black ctermfg=0 guifg=Black ctermbg=0
+    exec "normal p"
+    "echom "Buffer name" name window_num
+    " TODO: Focus back to the original window. Also make header buffers 
+    " scratch buffers.
+    exec window_num . " wincmd w"
+    "exec "normal 'a"
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text Editing, Formatting and Snippets
