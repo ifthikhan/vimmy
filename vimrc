@@ -344,6 +344,7 @@ nnoremap <silent> <leader>h :call SearchWordUnderCursorInVimHelp()<CR>
 " Disable default working path mode
 let g:ctrlp_working_path_mode = 0
 
+" Useful when reading tabular data or long files with header
 function! FixHeader()
     execute("normal ma gg yy")
     let w:heading_buffer_name = "__header__"
@@ -366,7 +367,6 @@ function! CloseFixedHeaderWin()
     exec bufwinnr(bufname(w:heading_buffer_name)) . " wincmd w"
     exec "q"
 endfunction
-
 
 command! -nargs=0 FixHeader : call FixHeader()
 
