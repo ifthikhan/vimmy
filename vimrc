@@ -345,21 +345,30 @@ nnoremap <silent> <leader>h :call SearchWordUnderCursorInVimHelp()<CR>
 let g:ctrlp_working_path_mode = 0
 
 function! FixHeader()
-    let name = bufname("%")
-    let window_num = bufwinnr(name)
-    "echom "Buffer name" name window_num
     execute("normal ma gg yy")
-    new
+    let w:heading_buffer_name = "__header__"
+    new `=w:heading_buffer_name`
     resize 1
-    setlocal statusline='-'
-    hi statusline guibg=Black ctermfg=0 guifg=Black ctermbg=0
-    exec "normal p"
-    "echom "Buffer name" name window_num
-    " TODO: Focus back to the original window. Also make header buffers 
-    " scratch buffers.
-    exec window_num . " wincmd w"
-    "exec "normal 'a"
+    setlocal buftype=nowrite
+    setlocal bufhidden=delete
+    setlocal noswapfile
+    setlocal nobuflisted
+    setlocal tw=0
+    setlocal colorcolumn=0
+    exec "normal P"
+    " Jump back to the previous window and the correct position
+    exec  bufwinnr(bufname("#")) . " wincmd w"
+    exec "normal 'a"
+    au BufWinLeave <buffer> call CloseFixedHeaderWin()
 endfunction
+
+function! CloseFixedHeaderWin()
+    exec bufwinnr(bufname(w:heading_buffer_name)) . " wincmd w"
+    exec "q"
+endfunction
+
+
+command! -nargs=0 FixHeader : call FixHeader()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text Editing, Formatting and Snippets
