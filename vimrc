@@ -456,9 +456,11 @@ nnoremap 0 ^
 
 " Strips the trailing spaces
 function! StripTrailingSpaces()
-    exe "normal ma"
-    %s/\s\+$//e
-    exe "normal `a"
+    if !&binary && &modifiable && &filetype != 'diff'
+        exe "normal ma"
+        %s/\s\+$//e
+        exe "normal `a"
+    endif
 endfunction
 
 function! ToggleStripTrailingSpaces()
