@@ -30,6 +30,11 @@ git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/mileszs/ack.vim.git
 git clone https://github.com/vim-scripts/taglist.vim
 git clone https://github.com/davidhalter/jedi-vim.git #Refactoring, contextual autocomplete, goto
+# Make sure to update the jedi code
+# https://github.com/davidhalter/jedi-vim/issues/53
+pushd jedi-vim
+git submodule update --init
+popd
 git clone https://github.com/scrooloose/syntastic.git # Linting
 git clone https://github.com/hynek/vim-python-pep8-indent.git
 git clone https://github.com/mikewest/vimroom.git #Distraction Free editing mode
