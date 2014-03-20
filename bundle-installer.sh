@@ -35,6 +35,7 @@ git clone https://github.com/hynek/vim-python-pep8-indent.git
 git clone https://github.com/mikewest/vimroom.git #Distraction Free editing mode
 git clone https://github.com/itchyny/lightline.vim # Status line modifier
 git clone https://github.com/ifthikhan/vimscratch # Simple scratch buffer
+git clone https://github.com/msanders/snipmate.vim
 
 #PHP plugins
 #git clone https://github.com/vim-scripts/php.vim
