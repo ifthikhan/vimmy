@@ -26,7 +26,10 @@ autocmd!
 
 " Function to return the system type
 function! MySys()
-    return "linux"
+    let g:my_platform = "unknown"
+    if has("unix")
+        let g:my_platform = substitute(system('uname -s'), "\n", "", "")
+    return g:my_platform
 endfunction
 
 " Set the current local
@@ -138,11 +141,17 @@ set t_vb=
 set tm=500
 
 " Set font ??
-set gfn=Monospace\ 10
+set gfn=Monospace\ 13
 
-colorscheme zellner
+try
+    " Possible alternatives are: peaksea, mayansmoke, pyte, ir_black
+    colorscheme mayansmoke
+catch /^Vim\%((\a\+)\)\=:E185/
+    colorscheme zellner
+endtry
 
-set background=dark
+" Setting this to a value will force vim to switch colorschemes automagically.
+" set background=dark
 
 " Bash like keys for the command line
 cnoremap <C-A>   <Home>
@@ -542,8 +551,12 @@ set cursorline
             "\ guifg=white
 
 " Highlight line number
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE
-                \ guifg=DarkGrey guibg=NONE
+"highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE
+                "\ guifg=DarkGrey guibg=NONE
+
+" Use these directive if the Pmenu color gets messed up
+" hi Pmenu ctermfg=0 ctermbg=6 guibg=#444444
+" hi PmenuSel ctermfg=7 ctermbg=4 guibg=#555555 guifg=#ffffff
 
 map <silent> <leader><space> :noh<cr>
 
@@ -576,3 +589,4 @@ let g:if_extended_vimrc = GetHomeDir() . '/.vimrcx'
 if filereadable(g:if_extended_vimrc)
     so `=g:if_extended_vimrc`
 endif
+

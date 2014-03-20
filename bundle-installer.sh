@@ -29,9 +29,8 @@ git clone https://github.com/scrooloose/nerdcommenter.git
 git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/mileszs/ack.vim.git
 git clone https://github.com/vim-scripts/taglist.vim
-git clone https://github.com/davidhalter/jedi-vim.git #Refactoring, contextual autocomplete, goto
-# Make sure to update the jedi code
-# https://github.com/davidhalter/jedi-vim/issues/53
+git clone https://github.com/davidhalter/jedi-vim.git
+# Make sure to update the jedi code, https://github.com/davidhalter/jedi-vim/issues/53
 pushd jedi-vim
 git submodule update --init
 popd
@@ -41,9 +40,11 @@ git clone https://github.com/mikewest/vimroom.git #Distraction Free editing mode
 git clone https://github.com/itchyny/lightline.vim # Status line modifier
 git clone https://github.com/ifthikhan/vimscratch # Simple scratch buffer
 
-#PHP plugins
-#git clone https://github.com/vim-scripts/php.vim
-#git clone https://github.com/joonty/vim-phpqa
+# Colorschemes
+git clone https://github.com/vim-scripts/peaksea.git
+git clone https://github.com/therubymug/vim-pyte.git
+git clone https://github.com/wesgibbs/vim-irblack.git
+git clone https://github.com/vim-scripts/mayansmoke.git
 
 # The installation of the solar theme requires the installation of a theme for
 # the terminal itself which can be done from the repo
