@@ -40,6 +40,7 @@ git clone https://github.com/mikewest/vimroom.git #Distraction Free editing mode
 git clone https://github.com/itchyny/lightline.vim # Status line modifier
 git clone https://github.com/ifthikhan/vimscratch # Simple scratch buffer
 git clone https://github.com/msanders/snipmate.vim
+git clone https://github.com/ervandew/supertab.git
 
 # Colorschemes
 git clone https://github.com/vim-scripts/peaksea.git

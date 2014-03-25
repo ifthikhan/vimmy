@@ -145,7 +145,7 @@ set gfn=Monospace\ 13
 
 try
     " Possible alternatives are: peaksea, mayansmoke, pyte, ir_black
-    colorscheme mayansmoke
+    colorscheme ir_black
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme zellner
 endtry
@@ -555,8 +555,8 @@ set cursorline
                 "\ guifg=DarkGrey guibg=NONE
 
 " Use these directive if the Pmenu color gets messed up
-" hi Pmenu ctermfg=0 ctermbg=6 guibg=#444444
-" hi PmenuSel ctermfg=7 ctermbg=4 guibg=#555555 guifg=#ffffff
+hi Pmenu ctermfg=0 ctermbg=6 guibg=#444444
+hi PmenuSel ctermfg=7 ctermbg=4 guibg=#555555 guifg=#ffffff
 
 map <silent> <leader><space> :noh<cr>
 
@@ -590,3 +590,4 @@ if filereadable(g:if_extended_vimrc)
     so `=g:if_extended_vimrc`
 endif
 
+let g:SuperTabDefaultCompletionType = "context"
