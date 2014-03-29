@@ -256,6 +256,12 @@ set tags=./tags,tags
 " Adding ack
 let g:ackprg="ack -H --nocolor --nogroup --column"
 
+" Highlight the search term in the open buffers
+let g:ackhighlight=1
+
+" Open the a window for preview when navigating with j or k
+let g:ackpreview=1
+
 " Function to toggle between regular and relative numbering
 function! ToggleLineNumbers()
     if !exists("w:toggle_line_numbers")
