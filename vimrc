@@ -254,7 +254,7 @@ nmap <leader>g :grep! -REn <C-R><C-W>
 set tags=./tags,tags
 
 " Adding ack
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+let g:ackprg="ack -H --nocolor --nogroup --column"
 
 " Function to toggle between regular and relative numbering
 function! ToggleLineNumbers()
