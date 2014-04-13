@@ -143,12 +143,6 @@ set tm=500
 " Set font ??
 set gfn=Monospace\ 13
 
-try
-    " Possible alternatives are: peaksea, mayansmoke, pyte, ir_black
-    colorscheme ir_black
-catch /^Vim\%((\a\+)\)\=:E185/
-    colorscheme zellner
-endtry
 
 " Setting this to a value will force vim to switch colorschemes automagically.
 " set background=dark
@@ -597,3 +591,16 @@ if filereadable(g:if_extended_vimrc)
 endif
 
 let g:SuperTabDefaultCompletionType = "context"
+
+
+" This was originally in the UI section but have been moved here to be able to
+" override the colorscheme in vimrcx file. VIM does not play well with changing
+" colorschemes on the fly https://github.com/altercation/solarized/issues/102
+try
+    " Possible alternatives are: peaksea, mayansmoke, pyte, ir_black
+    if g:colors_name == "default"
+        colorscheme ir_black
+    endif
+catch /^Vim\%((\a\+)\)\=:E185/
+    colorscheme zellner
+endtry
