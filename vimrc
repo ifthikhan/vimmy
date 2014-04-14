@@ -598,9 +598,15 @@ let g:SuperTabDefaultCompletionType = "context"
 " colorschemes on the fly https://github.com/altercation/solarized/issues/102
 try
     " Possible alternatives are: peaksea, mayansmoke, pyte, ir_black
-    if g:colors_name == "default"
+    if !exists('g:colors_name') || g:colors_name == "default"
         colorscheme ir_black
     endif
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme zellner
 endtry
+
+
+" Ultisnips shortcuts
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
