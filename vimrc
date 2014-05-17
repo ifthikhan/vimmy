@@ -203,6 +203,9 @@ set guitablabel=%t
 " Toggle NERDTree
 nmap <silent> <c-n> :NERDTreeToggle<CR>
 
+" Open the directory which the current file resides in.
+command! -nargs=0 NFind :NERDTreeFind
+
 " Ignore python code files.
 let NERDTreeIgnore = ['\.pyc$']
 
