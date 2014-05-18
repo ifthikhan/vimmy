@@ -147,6 +147,9 @@ set gfn=Monospace\ 13
 " Setting this to a value will force vim to switch colorschemes automagically.
 " set background=dark
 
+" Possible alternatives are: peaksea, mayansmoke, pyte, ir_black
+colorscheme ir_black
+
 " Bash like keys for the command line
 cnoremap <C-A>   <Home>
 cnoremap <C-E>   <End>
@@ -594,20 +597,6 @@ if filereadable(g:if_extended_vimrc)
 endif
 
 let g:SuperTabDefaultCompletionType = "context"
-
-
-" This was originally in the UI section but have been moved here to be able to
-" override the colorscheme in vimrcx file. VIM does not play well with changing
-" colorschemes on the fly https://github.com/altercation/solarized/issues/102
-try
-    " Possible alternatives are: peaksea, mayansmoke, pyte, ir_black
-    if !exists('g:colors_name') || g:colors_name == "default"
-        colorscheme ir_black
-    endif
-catch /^Vim\%((\a\+)\)\=:E185/
-    colorscheme zellner
-endtry
-
 
 " Ultisnips shortcuts
 let g:UltiSnipsExpandTrigger="<tab>"
