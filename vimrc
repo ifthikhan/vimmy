@@ -523,6 +523,11 @@ noremap <Backspace> :b#<CR>
 " Toggle paste mode with F2
 set pastetoggle=<F2>
 
+" Copying the contents from VIM to Clipboard. Works in gVim and Mac only if
+" clipboard support is enabled.
+" http://stackoverflow.com/questions/677986/vim-copy-selection-to-os-x-clipboard
+set clipboard=unnamed
+
 " Always exit paste mode when leaving insert mode
 au InsertLeave * set nopaste
 
