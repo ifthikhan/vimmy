@@ -15,7 +15,7 @@ echo '"Place settings specific to this host here' > ~/.vimrcx
 
 echo "Installing and placing pathogen"
 mkdir -p ~/.vim/autoload ~/.vim/bundle
-curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+curl -Sso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 mkdir -p ~/.vim/bundle
 pushd ~/.vim/bundle
